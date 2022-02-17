@@ -7,6 +7,9 @@
 
 ## Run application (without Docker)
 
+```sh
+celery dbr_worker -A app.task.test_task -l info -Q test-queue -c 1
+```
 
 ## TODO
 

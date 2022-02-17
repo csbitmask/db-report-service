@@ -1,6 +1,18 @@
 version: "3.9"
 
 services:
+  postgres:
+    restart: always
+    image: postgres:13.3
+    environment:
+      POSTGRES_DB: "shiva"
+      POSTGRES_USER: "qwerty"
+      POSTGRES_PASSWORD: "12qwaszx"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - .pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
   redis-backend:
     restart: always
     image: redis:latest
