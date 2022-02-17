@@ -2,12 +2,13 @@ version: "3.9"
 
 services:
   redis-backend:
-    image: redis:latest
     restart: always
+    image: redis:latest
     ports:
       - "6379:6379"
     command: redis-server --save 60 1 --requirepass 12qwaszx --loglevel warning
   rabbitmq-broker:
+    restart: always
     image: rabbitmq:3-management
     ports:
       # AMQP protocol port

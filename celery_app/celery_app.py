@@ -7,5 +7,3 @@ celery_app = Celery(
     backend=settings.CELERY_BACKEND,
     broker=settings.CELERY_BROKER
 )
-
-# TODO: configure routing
