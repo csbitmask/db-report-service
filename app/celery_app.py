@@ -7,3 +7,6 @@ celery_app = Celery(
     backend=settings.CELERY_BACKEND,
     broker=settings.CELERY_BROKER
 )
+
+celery_app.conf.task_routes = {
+    "app.worker.celery_worker.test_celery": "test-queue"}
