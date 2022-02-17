@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  redis-backend:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --save 60 1 --requirepass 12qwaszx --loglevel warning
+  rabbitmq-broker:
+    image: rabbitmq:3-management
+    ports:
+      # AMQP protocol port
+      - "5672:5672"
+      # HTTP management UI
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=qwerty
+      - RABBITMQ_DEFAULT_PASS=12qwaszx
